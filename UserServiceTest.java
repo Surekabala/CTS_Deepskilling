@@ -2,7 +2,7 @@ package mockitoexercises;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class UserServiceTest {
@@ -14,9 +14,12 @@ public class UserServiceTest {
 
         UserService userService = new UserService(notificationService);
 
+
         when(notificationService.sendNotification())
                 .thenReturn("Mock Notification");
 
-        assertEquals("Mock Notification", userService.registerUser());
+        userService.registerUser();
+
+        verify(notificationService).sendNotification();
     }
 }
