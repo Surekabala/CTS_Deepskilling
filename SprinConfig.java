@@ -10,9 +10,8 @@ public class SprinConfig {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
-        GreetingService greetingService =
-                context.getBean(GreetingService.class);
+        Car car = context.getBean(Car.class);
 
-        greetingService.greet();
+        car.drive();
     }
 }
